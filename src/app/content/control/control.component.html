@@ -1,0 +1,45 @@
+<div class="card">
+<h4>Control Your Device</h4>
+<h5 class="control-head">Outlet 1</h5>
+<div class="row control-panel">
+  <div class="button control-buttons" (click)="toggleSwitch(1,'off')" [class.control-active]="outlet1==false">
+    <img ng- src="../../../assets/icons/power-off-solid.svg" class="control-logo"><br>
+    <span class="control-title">Turn Off</span>
+  </div>
+  <div class="button button control-buttons" (click)="toggleSwitch(1,'on')" [class.control-active]="outlet1==true">
+    <img ng- src="../../../assets/icons/plug-solid.svg" class="control-logo"><br>
+    <span class="control-title">&nbsp;Turn On</span>
+  </div>
+</div>
+<h5 class="control-head" >Outlet 2</h5>
+<div class="row control-panel">
+  <div class="button control-buttons" (click)="toggleSwitch(2,'off')" [class.control-active]="outlet2==false">
+    <img ng- src="../../../assets/icons/power-off-solid.svg" class="control-logo"><br>
+    <span class="control-title">Turn Off</span>
+  </div>
+  <div class="button button control-buttons" (click)="toggleSwitch(2,'on')" [class.control-active]="outlet2==true">
+    <img ng- src="../../../assets/icons/plug-solid.svg" class="control-logo"><br>
+    <span class="control-title">&nbsp;Turn On</span>
+  </div>
+</div>
+<h5 class="control-head" >Outlet 3</h5>
+<div class="row control-panel">
+  <div class="button control-buttons" (click)="toggleSwitch(3,'off')" [class.control-active]="outlet3==false">
+    <img ng- src="../../../assets/icons/power-off-solid.svg" class="control-logo"><br>
+    <span class="control-title">Turn Off</span>
+  </div>
+  <div class="button button control-buttons" (click)="toggleSwitch(3,'on')" [class.control-active]="outlet3==true">
+    <img ng- src="../../../assets/icons/plug-solid.svg" class="control-logo"><br>
+    <span class="control-title">&nbsp;Turn On</span>
+  </div>
+</div>
+</div>
+
+<div id="toast-container" class="toast-top-right" *ngFor="let item of notifications">  
+    <div class="toast {{cssClass(item) }}" aria-live="polite" style="display: block;">  
+        <button type="button" class="toast-close-button" role="button" (click)="removeNotification(item)">×</button>  
+        <div class="toast-message">  
+            {{item.message}}  
+        </div>  
+    </div>  
+</div>  

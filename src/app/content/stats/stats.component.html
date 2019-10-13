@@ -1,0 +1,37 @@
+<div class="card">
+  <h4>Public URL Access</h4>
+  <p class="blockquote">You may copy this link to access your device via internet.
+    <br>
+    <input id="link-input" [(ngModel)]="publicURL" type="text" size="30" pInputText #publicUrl readonly />
+    <button id="link-btn" type="button" class="button" (click)="copyLink(publicUrl)">Copy</button>
+  </p>
+</div>
+<br>
+<div class="card">
+  <h4>Historical Use</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Outlet</th>
+        <th>Action</th>
+        <th>Date</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let switch of histories">
+        <td>{{switch.outlet}}</td>
+        <td style="background-color: rgba(0, 255, 0, 0.13)" *ngIf="switch.action" > Turned On</td>
+        <td style="background-color: rgba(255, 0, 0, 0.151)" *ngIf="!switch.action"> Turned Off</td>
+        <td>{{switch.date}}</td>              
+    </tbody>
+  </table>
+</div>
+
+<div id="toast-container" class="toast-top-right" *ngFor="let item of notifications">  
+    <div class="toast {{cssClass(item) }}" aria-live="polite" style="display: block;">  
+        <button type="button" class="toast-close-button" role="button" (click)="removeNotification(item)">×</button>  
+        <div class="toast-message">  
+            {{item.message}}  
+        </div>  
+    </div>  
+</div>  

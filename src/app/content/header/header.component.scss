@@ -1,0 +1,45 @@
+.head-panel {
+  flex-direction: unset;
+  margin-left: 0px;
+  border-style: outset;
+}
+
+.header-buttons {
+    margin-right: 2px;
+    width: 100px;
+    height: 65px;
+    padding-top: 5px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.header-buttons:hover, .header-buttons:focus, .header-active, header-active {
+    .header-logo {    
+        filter: invert(80%) sepia(41) saturate(13%) hue-rotate(0deg);        
+    }
+    background-color: #192d88;
+    border-color: #000000;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+
+
+
+.header-title {
+  top: -20px;
+  padding-bottom: 10px;
+  position: relative;
+  
+  left: 0px;
+
+}
+
+.header-logo {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+
+  position: inherit;
+  filter: invert(30%) sepia(41) saturate(13%) hue-rotate(0deg);
+}
