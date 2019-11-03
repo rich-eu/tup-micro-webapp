@@ -12,6 +12,7 @@ import { StatsComponent } from './stats/stats.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './guard';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
 
   providers: [
-    
+    AuthGuard    
   ]
 })
 export class ContentModule { }

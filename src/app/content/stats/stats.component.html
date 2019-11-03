@@ -3,7 +3,7 @@
   <p class="blockquote">You may copy this link to access your device via internet.
     <br>
     <input id="link-input" [(ngModel)]="publicURL" type="text" size="30" pInputText #publicUrl readonly />
-    <button id="link-btn" type="button" class="button" (click)="copyLink(publicUrl)">Copy</button>
+    <button id="link-btn" type="button" class="button" (click)="copyLink(publicUrl)">Copy</button> &nbsp; <button id="link-btn" type="button" class="button" (click)="refreshLink()">Refresh</button>    
   </p>
 </div>
 <br>

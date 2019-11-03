@@ -7,6 +7,7 @@ export const environment = {
 
   API_URL: 'http://192.168.88.42:8000/api/',
   // API_URL: 'http://10.42.0.1:8000/api/',
+  NGROK_API: 'http://192.168.88.42/api/ngrok_stats',
   HISTORY_LIMIT: 20
 };
 

@@ -43,7 +43,7 @@ input[type='button'],
 input[type='reset'],
 input[type='submit'] {
   background-color: #ffffff;
-  border: 0.1rem solid #192d88;
+  border: 0.1rem solid rgb(51, 103, 214);
   border-radius: .4rem;
   color: #202020;
   cursor: pointer;
@@ -70,7 +70,7 @@ input[type='reset']:focus,
 input[type='reset']:hover,
 input[type='submit']:focus,
 input[type='submit']:hover {
-  background-color: #192d88;
+  background-color: rgb(51, 103, 214);
   border-color: #000000;
   color: #FFFFFF;
   outline: 0;
@@ -95,7 +95,7 @@ input[type='reset'][disabled]:hover,
 input[type='submit'][disabled]:focus,
 input[type='submit'][disabled]:hover {
   background-color: #000000;
-  border-color: #192d88;
+  border-color: rgb(51, 103, 214);
 }
 
 .button.button-outline,
@@ -104,7 +104,7 @@ input[type='button'].button-outline,
 input[type='reset'].button-outline,
 input[type='submit'].button-outline {
   background-color: transparent;
-  color: #192d88;
+  color: rgb(51, 103, 214);
 }
 
 .button.button-outline:focus, .button.button-outline:hover,
@@ -117,7 +117,7 @@ input[type='reset'].button-outline:hover,
 input[type='submit'].button-outline:focus,
 input[type='submit'].button-outline:hover {
   background-color: transparent;
-  border-color: #192d88;
+  border-color: rgb(51, 103, 214);
   color: #FFFFFF;
 }
 
@@ -131,7 +131,7 @@ input[type='reset'].button-outline[disabled]:hover,
 input[type='submit'].button-outline[disabled]:focus,
 input[type='submit'].button-outline[disabled]:hover {
   border-color: inherit;
-  color: #192d88;
+  color: rgb(51, 103, 214);
 }
 
 .button.button-clear,
@@ -141,7 +141,7 @@ input[type='reset'].button-clear,
 input[type='submit'].button-clear {
   background-color: transparent;
   border-color: transparent;
-  color: #192d88;
+  color: rgb(51, 103, 214);
 }
 
 .button.button-clear:focus, .button.button-clear:hover,
@@ -167,7 +167,7 @@ input[type='reset'].button-clear[disabled]:focus,
 input[type='reset'].button-clear[disabled]:hover,
 input[type='submit'].button-clear[disabled]:focus,
 input[type='submit'].button-clear[disabled]:hover {
-  color: #192d88;
+  color: rgb(51, 103, 214);
 }
 
 code {
@@ -181,7 +181,7 @@ code {
 
 pre {
   background: #f4f5f6;
-  border-left: 0.3rem solid #192d88;
+  border-left: 0.3rem solid rgb(51, 103, 214);
   overflow-y: hidden;
 }
 
@@ -229,7 +229,7 @@ input[type='text']:focus,
 input[type='url']:focus,
 textarea:focus,
 select:focus {
-  border-color: #192d88;
+  border-color: rgb(51, 103, 214);
   outline: 0;
 }
 
@@ -441,7 +441,7 @@ input[type='radio'] {
 }
 
 a {
-  color: #192d88;
+  color: rgb(51, 103, 214);
   text-decoration: none;
 }
 

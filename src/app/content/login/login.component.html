@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="card">
+    <h4>Login</h4>
+    Username
+    <input id="username-input" [(ngModel)]="username" type="text"  pInputText  />
+    <br>
+    Password
+    <input id="password-input" [(ngModel)]="password" type="password" (keyup.enter)="login()" pInputText  />
+    <br>
+    <input id="submit"  type="button" value="Submit" (click)="login()"  #submit />
+</div>
+<div id="toast-container" class="toast-top-right" *ngFor="let item of notifications">  
+    <div class="toast {{cssClass(item) }}" aria-live="polite" style="display: block;">  
+        <button type="button" class="toast-close-button" role="button" (click)="removeNotification(item)">×</button>  
+        <div class="toast-message">  
+            {{item.message}}  
+        </div>  
+    </div>  
+</div>  

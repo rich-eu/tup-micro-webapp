@@ -19,9 +19,9 @@ export interface Switch {
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit, OnDestroy {
-  public publicURL = "http://www.google.com/";
+  public publicURL = "";
   private apiUnsubscribeService: Subject<void> = new Subject();
-  public histories: Switch[] = [];
+  public histories: Switch[] = [];  
   notifications: Notification[] = [];
 
   constructor(
@@ -31,6 +31,7 @@ export class StatsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getDeviceHistory();
+    this.getPublicURL();
     this._notificationService.getAlert().subscribe((alert: Notification) => {
       this.notifications = [];
       if (!alert) {
@@ -51,11 +52,12 @@ export class StatsComponent implements OnInit, OnDestroy {
   }
 
   public copyLink(inputElement){
-    inputElement.select();
-    document.execCommand('copy');
-    inputElement.setSelectionRange(0, 0);
-    this._notificationService.success('Link has been copied to Clipboard!') 
-
+    if (this.publicURL !== "" ) {
+      inputElement.select();
+      document.execCommand('copy');
+      inputElement.setSelectionRange(0, 0);
+      this._notificationService.success('Link has been copied to Clipboard!') 
+    }
   }
 
   public getDeviceHistory(){
@@ -66,9 +68,9 @@ export class StatsComponent implements OnInit, OnDestroy {
     this.appService.getService(url, param).pipe(
       takeUntil(this.apiUnsubscribeService)).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         if ((Object.assign(data)).length > 0) {
-          console.log('pasok');
+          // console.log('pasok');
           Object.assign(data).forEach(row => {
             this.histories.push({
               outlet: row.device,
@@ -78,18 +80,66 @@ export class StatsComponent implements OnInit, OnDestroy {
           });
 
         }
-        console.log(this.histories);
+        // console.log(this.histories);
         
       },
       error => {
-        console.log(error);
+        // console.log(error);
         this._notificationService.error(error.message);
       }
     );
   }
 
+  public getPublicURL(){
+    const url = environment.NGROK_API;
+    const param = {      
+    };
+    this.histories = [];
+    this.appService.getService(url, param).pipe(
+      takeUntil(this.apiUnsubscribeService)).subscribe(
+      data => {        
+        if ((Object.assign(data).tunnels).length > 0) {          
+          Object.assign(data).tunnels.forEach(row => {
+            if (row.proto === 'https')
+            {
+              this.publicURL = row.public_url;
+            }
+          });
+        }                
+      },
+      error => {        
+        this.publicURL = "";        
+        this._notificationService.error("Can't Create Publi URL. Device not connected to internet");
+      }
+    );
+  }
+
+  public generateNewLink(){
+    const url = environment.API_URL + 'restart_ngrok';
+    const param = {      
+    };
+    this.histories = [];
+    this.appService.getService(url, param).pipe(
+      takeUntil(this.apiUnsubscribeService)).subscribe(
+      data => {        
+          
+        this._notificationService.success("Public URL Updated Succesfully");                
+      },
+      error => {        
+        this._notificationService.error(error.message);
+      }
+    );
+    this.getDeviceHistory();
+    this.getPublicURL();
+  }
+
   removeNotification(notification: Notification) {
     this.notifications = this.notifications.filter(x => x !== notification);
+  }
+
+  public refreshLink(){
+    this.getPublicURL();
+    this.getDeviceHistory();
   }
 
   cssClass(notification: Notification) {

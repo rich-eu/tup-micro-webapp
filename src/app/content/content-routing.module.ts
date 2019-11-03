@@ -8,14 +8,16 @@ import { ControlComponent } from './control/control.component';
 import { StatsComponent } from './stats/stats.component';
 import { NotFoundComponent } from './not-found/not-found.component'
 
+import { AuthGuard } from './guard';
+
 
 const routes: Routes = [
   { path: '', component: ContentComponent,
     children: [
      { path: '', redirectTo: '/control', pathMatch: 'full'  } ,      
-      { path: 'control', component: ControlComponent, } ,      
+      { path: 'control', component: ControlComponent } ,      
       { path: 'about', component: AboutComponent, } ,      
-      { path: 'stats', component: StatsComponent, } ,
+      { path: 'stats', component: StatsComponent  } ,
       { path: 'login', component: LoginComponent   } ,  
       { path: 'not-found', component: NotFoundComponent   } ,      
      { path: '**', redirectTo: '/not-found'  } ,
